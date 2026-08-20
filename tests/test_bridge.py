@@ -2,6 +2,7 @@ from pathlib import Path
 
 from citetrail.bridge import NativeBridge
 from citetrail.capture import CaptureRequest
+from citetrail.privacy import PrivacyPolicy
 from citetrail.store import Store
 
 
@@ -45,3 +46,17 @@ def test_bridge_termination_leaves_a_visible_gap(tmp_path: Path) -> None:
 
     assert result.status == "unavailable"
     assert result.gap is True
+
+
+def test_bridge_reports_privacy_blocked_without_storing_content(tmp_path: Path) -> None:
+    store = Store.create(tmp_path / "store")
+    result = NativeBridge().capture(
+        store,
+        request(),
+        policy=PrivacyPolicy(blocked_hosts=frozenset({"docs.example.test"})),
+    )
+
+    assert result.status == "privacy-blocked"
+    assert result.capture is not None
+    assert result.capture.status == "privacy-blocked"
+    assert store.search("Synthetic browser text") == ()

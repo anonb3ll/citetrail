@@ -41,9 +41,10 @@ class NativeBridge:
             text=request.text[: self.max_capture_chars],
             captured_at=request.captured_at,
         )
+        capture_result = capture(store, bounded_request, policy=policy)
         return BridgeResult(
-            status="captured",
-            capture=capture(store, bounded_request, policy=policy),
+            status=capture_result.status,
+            capture=capture_result,
             truncated=truncated,
             gap=False,
         )
