@@ -31,3 +31,9 @@ def test_mcp_search_returns_fragments_with_required_provenance(tmp_path: Path) -
             },
         }
     ]
+
+
+def test_mcp_search_preserves_an_explicit_unavailable_state(tmp_path: Path) -> None:
+    payload = search_tool(Store.create(tmp_path / "store"), "anything", source_state="unavailable")
+
+    assert payload == {"status": "unavailable", "matches": []}

@@ -6,8 +6,8 @@ from citetrail.recall import recall
 from citetrail.store import Store
 
 
-def search_tool(store: Store, query: str) -> dict[str, object]:
-    result = recall(store, query)
+def search_tool(store: Store, query: str, source_state: str = "available") -> dict[str, object]:
+    result = recall(store, query, source_state=source_state)
     return {
         "status": result.status,
         "matches": [
@@ -45,15 +45,39 @@ def run_stdio(
                         "description": "Search local captures with inseparable provenance.",
                         "inputSchema": {
                             "type": "object",
-                            "properties": {"query": {"type": "string"}},
+                            "properties": {
+                                "query": {"type": "string"},
+                                "source_state": {
+                                    "type": "string",
+                                    "enum": [
+                                        "available",
+                                        "offline",
+                                        "unavailable",
+                                        "privacy-blocked",
+                                    ],
+                                },
+                            },
                             "required": ["query"],
                         },
                     }
                 ]
             }
         elif method == "tools/call" and request.get("params", {}).get("name") == "citetrail_search":
-            query = request["params"]["arguments"]["query"]
-            result = {"content": [{"type": "text", "text": json.dumps(search_tool(store, query))}]}
+            arguments = request["params"]["arguments"]
+            result = {
+                "content": [
+                    {
+                        "type": "text",
+                        "text": json.dumps(
+                            search_tool(
+                                store,
+                                arguments["query"],
+                                arguments.get("source_state", "available"),
+                            )
+                        ),
+                    }
+                ]
+            }
         else:
             output_stream.write(
                 json.dumps(

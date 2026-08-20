@@ -18,11 +18,12 @@ page title, and the capture timestamp.
 ## What is never captured
 
 - Pages matching your blocklist.
-- Anything at all, if you run in allowlist-only mode and the page is not on the
-  list.
+- Citetrail currently supports explicit hostname blocks through the CLI.
+  Allowlist-only capture is not implemented yet.
 - Form fields, passwords, cookies, and credentials — the extension does not read
   them.
-- Pages loaded in a private/incognito window.
+- Pages loaded in a private/incognito window. The content script refuses to
+  send from an incognito extension context.
 - Any page, if the rules cannot be evaluated. **Fail closed** is the default and
   cannot be turned off.
 
@@ -46,9 +47,9 @@ does not pretend to.
 ## Retention and deletion
 
 - Nothing expires by default; you decide what to keep.
-- Delete a single capture, everything from a domain, or a time range.
 - Delete the store directory to remove everything. There is no other copy and
-  nothing to revoke elsewhere.
+  nothing to revoke elsewhere. Per-capture, domain, and time-range deletion
+  are not implemented yet.
 
 ## Honest states
 

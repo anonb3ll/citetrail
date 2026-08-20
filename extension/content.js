@@ -1,4 +1,4 @@
-if (window.top === window) {
+if (!chrome.extension.inIncognitoContext && window.top === window) {
   chrome.runtime.sendMessage(
     {
       type: "capture",

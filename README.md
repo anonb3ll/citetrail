@@ -83,8 +83,8 @@ no server and performs no uploads. See [docs/privacy.md](docs/privacy.md).
 ### How do I stop it capturing my bank, my email, or my work intranet?
 
 The blocklist. It is checked before capture, and it **fails closed** — if the
-rules cannot be evaluated for a page, that page is not captured. You can also
-run allowlist-only, where nothing is captured unless you name it.
+rules cannot be evaluated for a page, that page is not captured. Add a host
+with `citetrail block bank.example.test`. Allowlist-only capture is deferred.
 
 ### Can an agent cite a source it did not actually read?
 
