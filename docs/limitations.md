@@ -28,7 +28,7 @@ that path has real constraints:
 - It requires the local service to be installed and running. When it is not, the
   extension reports **unavailable** — it does not queue captures indefinitely.
 - Message size is bounded by the browser's native messaging limits; very large
-  pages are truncated at a documented boundary rather than silently dropped.
+  pages are truncated at **50,000 characters** rather than silently dropped.
 - Browsers may terminate the bridge on suspend or profile switch; capture
   resumes on the next page, and the gap is visible rather than hidden.
 - Chromium-based browsers are the first target. Firefox support is untested.

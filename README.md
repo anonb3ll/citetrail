@@ -46,24 +46,26 @@ serve a fragment as if it were still live.
 
 ## Quickstart
 
-> Citetrail is not yet published. This section documents the intended first-run
-> experience and will become executable with the first tagged release. Nothing
-> here is a claim about what works today.
 
 ```bash
-# 1. Install the local service
-pip install citetrail          # not yet available — see Project status
-citetrail init
+# 1. Install the local service from this checkout
+python3 -m venv .venv
+.venv/bin/pip install -e .
+.venv/bin/citetrail init
 
-# 2. Load the browser extension (unpacked, from extension/)
-#    and set your allowlist / blocklist
+# 2. Search the local store
+.venv/bin/citetrail search "retry backoff"
 
-# 3. Read some pages, then search them
-citetrail search "retry backoff"
+# Optional: block a sensitive hostname before it can be stored
+.venv/bin/citetrail block bank.example.test
 
-# 4. Point an agent at it over MCP
-citetrail mcp --stdio
+# 3. Point an agent at the same local store over MCP
+.venv/bin/citetrail mcp --stdio
 ```
+
+The default store is `~/.local/share/citetrail`. Set `CITETRAIL_STORE` or pass
+`--store PATH` to use a different local directory. See
+[docs/extension.md](docs/extension.md) to load the unpacked Chromium adapter.
 
 ## Frequently asked questions
 
