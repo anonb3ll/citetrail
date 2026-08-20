@@ -37,3 +37,18 @@ def test_capture_fails_closed_when_rules_cannot_be_evaluated(tmp_path: Path) -> 
     )
     assert result.status == "privacy-blocked"
     assert result.reference is None
+
+
+def test_capture_fails_closed_for_a_malformed_url(tmp_path: Path) -> None:
+    result = capture(
+        Store.create(tmp_path / "store"),
+        CaptureRequest(
+            url="https://[malformed",
+            title="Synthetic malformed page",
+            text="Synthetic text",
+            captured_at="2026-08-20T22:00:00Z",
+        ),
+    )
+
+    assert result.status == "privacy-blocked"
+    assert result.reference is None

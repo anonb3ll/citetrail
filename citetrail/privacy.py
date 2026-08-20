@@ -20,5 +20,8 @@ class PrivacyPolicy:
     def allows(self, url: str) -> bool:
         if not self.rules_available:
             return False
-        host = urlparse(url).hostname
+        try:
+            host = urlparse(url).hostname
+        except ValueError:
+            return False
         return host is not None and host.lower() not in self.blocked_hosts
