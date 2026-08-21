@@ -152,9 +152,6 @@ Pre-release, pre-1.0. Interfaces will change. Citetrail is published to find out
 whether other people need this — if you try it, tell us what you were trying to
 recall and whether you got it.
 
-Published at [github.com/anonb3ll/citetrail](https://github.com/anonb3ll/citetrail).
-Organization migration to the `citetrail` org is planned once the GitHub org is created.
-
 ## License
 
 [Apache License 2.0](LICENSE). Copyright 2026 The Citetrail Contributors.

@@ -1,0 +1,54 @@
+name: CI
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        python-version: ["3.11", "3.12", "3.13"]
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: ${{ matrix.python-version }}
+      - run: pip install -e ".[dev]"
+      - run: ruff check .
+      - run: ruff format --check .
+      - run: pytest -q
+
+  smoke:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - run: pip install -e .
+      - name: init, capture, and MCP search smoke test
+        run: |
+          citetrail init --store /tmp/citetrail-ci
+          python - <<'PY'
+          from pathlib import Path
+          from citetrail.capture import CaptureRequest, capture
+          from citetrail.mcp import search_tool
+          from citetrail.store import Store
+
+          store = Store.create(Path("/tmp/citetrail-ci"))
+          capture(
+              store,
+              CaptureRequest(
+                  url="https://docs.example.test/ci",
+                  title="CI smoke",
+                  text="Citetrail capture and recall smoke test.",
+                  captured_at="2026-08-21T12:00:00Z",
+              ),
+          )
+          payload = search_tool(store, "smoke")
+          assert payload["status"] == "found", payload
+          assert payload["matches"][0]["reference"]["url"] == "https://docs.example.test/ci"
+          PY
