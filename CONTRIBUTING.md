@@ -32,7 +32,9 @@ tried to recall and failed to get is worth as much as a patch.
 ```bash
 git clone https://github.com/citetrail/citetrail
 cd citetrail
-# setup instructions land with the first tagged release
+python3 -m venv .venv && .venv/bin/pip install -e .
+
+.venv/bin/ruff check . && .venv/bin/ruff format --check . && .venv/bin/pytest -q
 ```
 
 ## Pull requests

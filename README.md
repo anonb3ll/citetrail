@@ -46,9 +46,9 @@ serve a fragment as if it were still live.
 
 ## Quickstart
 
-
 ```bash
-# 1. Install the local service from this checkout
+git clone https://github.com/citetrail/citetrail
+cd citetrail
 python3 -m venv .venv
 .venv/bin/pip install -e .
 .venv/bin/citetrail init
@@ -66,6 +66,17 @@ python3 -m venv .venv
 The default store is `~/.local/share/citetrail`. Set `CITETRAIL_STORE` or pass
 `--store PATH` to use a different local directory. See
 [docs/extension.md](docs/extension.md) to load the unpacked Chromium adapter.
+
+## Documentation
+
+| Guide | Description |
+| --- | --- |
+| [docs/README.md](docs/README.md) | Documentation index |
+| [docs/cli-reference.md](docs/cli-reference.md) | CLI commands and store layout |
+| [docs/mcp.md](docs/mcp.md) | MCP tool schema and registration |
+| [docs/extension.md](docs/extension.md) | Chromium extension setup |
+| [docs/privacy.md](docs/privacy.md) | Blocklist and fail-closed behavior |
+| [docs/integration-contract.md](docs/integration-contract.md) | Optional Runroom integration |
 
 ## Frequently asked questions
 
