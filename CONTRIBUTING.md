@@ -30,7 +30,7 @@ tried to recall and failed to get is worth as much as a patch.
 ## Development setup
 
 ```bash
-git clone https://github.com/citetrail/citetrail
+git clone https://github.com/anonb3ll/citetrail
 cd citetrail
 python3 -m venv .venv && .venv/bin/pip install -e .
 

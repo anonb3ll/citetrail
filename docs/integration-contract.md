@@ -1,10 +1,10 @@
 # Optional integration with Runroom
 
-Citetrail and [Runroom](https://github.com/runroom-dev/runroom) are independent products. An optional
+Citetrail and [Runroom](https://github.com/anonb3ll/runroom) are independent products. An optional
 integration contract lives in the third repo
-[citetrail-runroom-contract](https://github.com/runroom-dev/citetrail-runroom-contract):
+[citetrail-runroom-contract](https://github.com/anonb3ll/citetrail-runroom-contract):
 
-- Spec: [CONTRACT.md](https://github.com/runroom-dev/citetrail-runroom-contract/blob/main/CONTRACT.md)
+- Spec: [CONTRACT.md](https://github.com/anonb3ll/citetrail-runroom-contract/blob/main/CONTRACT.md)
 - Demo: `examples/demo.sh` in that repository
 - Evidence kind: `citetrail-reference-v1`
 

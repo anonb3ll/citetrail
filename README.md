@@ -47,7 +47,7 @@ serve a fragment as if it were still live.
 ## Quickstart
 
 ```bash
-git clone https://github.com/citetrail/citetrail
+git clone https://github.com/anonb3ll/citetrail
 cd citetrail
 python3 -m venv .venv
 .venv/bin/pip install -e .
@@ -135,7 +135,7 @@ See [docs/limitations.md](docs/limitations.md) and
 
 ## Related project
 
-[Runroom](https://github.com/runroom-dev/runroom) coordinates handoffs between
+[Runroom](https://github.com/anonb3ll/runroom) coordinates handoffs between
 AI agents and humans with review gates and an audit trail. The two projects are
 independent and neither requires the other; an optional integration shows a
 Citetrail reference feeding a governed Runroom task.
@@ -151,6 +151,9 @@ see [SECURITY.md](SECURITY.md).
 Pre-release, pre-1.0. Interfaces will change. Citetrail is published to find out
 whether other people need this — if you try it, tell us what you were trying to
 recall and whether you got it.
+
+Published at [github.com/anonb3ll/citetrail](https://github.com/anonb3ll/citetrail).
+Organization migration to the `citetrail` org is planned once the GitHub org is created.
 
 ## License
 
