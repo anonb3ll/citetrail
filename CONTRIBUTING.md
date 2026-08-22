@@ -32,10 +32,13 @@ tried to recall and failed to get is worth as much as a patch.
 ```bash
 git clone https://github.com/anonb3ll/citetrail
 cd citetrail
-python3 -m venv .venv && .venv/bin/pip install -e .
+python3 -m venv .venv && .venv/bin/pip install -e ".[dev]"
 
 .venv/bin/ruff check . && .venv/bin/ruff format --check . && .venv/bin/pytest -q
 ```
+
+Use the `dev` extra so `ruff` and `pytest` are available. A plain
+`pip install -e .` installs only the runtime package.
 
 ## Pull requests
 
@@ -59,3 +62,14 @@ a security report here, not a bug report.
 
 By contributing you agree that your contributions are licensed under the
 [Apache License 2.0](LICENSE).
+
+## Maintainer checklist (public GitHub)
+
+Before calling a release "done" on GitHub:
+
+1. Enable **private vulnerability reporting** (Settings → Code security).
+2. Confirm the Apache-2.0 license is detected on the repository page.
+3. Add topics such as `mcp`, `browser-extension`, `local-first`, `privacy`,
+   `provenance`.
+4. Prefer `docs/` over the wiki (disable the wiki if it is unused).
+5. Tag `v0.1.0` on `main` when this public slice is the published baseline.

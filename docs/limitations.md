@@ -12,9 +12,10 @@ upgrade path between pre-1.0 versions.
 - **Capture, not comprehension.** Citetrail stores what a page said and where it
   came from. It does not summarize, rank by importance, or build a knowledge
   graph.
-- **You maintain the rules.** The blocklist protects exactly what you put in it.
-  Sensible defaults ship, but they cannot know which of your internal hostnames
-  are sensitive.
+- **You maintain the rules.** The blocklist starts empty and protects exactly
+  the hostnames you add. Fail-closed evaluation is built in; default blocked
+  hosts are not. Citetrail cannot know which of your internal hostnames are
+  sensitive.
 - **No page-load interception.** Capture happens on rendered content in a tab
   you opened. Citetrail does not proxy, MITM, or fetch pages on your behalf.
 - **Not encrypted at rest.** Same trust boundary as your browser profile; see

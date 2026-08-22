@@ -11,8 +11,14 @@ supported.
 
 Report privately through GitHub's
 [private vulnerability reporting](https://docs.github.com/en/code-security/security-advisories/guidance-on-reporting-and-writing-information-about-vulnerabilities/privately-reporting-a-security-vulnerability)
-on this repository. Include what an attacker can do, what access they need, the
-smallest reproduction you have, and the affected commit.
+on this repository (Security → Advisories → New draft advisory, or the
+"Report a vulnerability" button when enabled). Include what an attacker can
+do, what access they need, the smallest reproduction you have, and the
+affected commit.
+
+If private reporting is unavailable on a fork or mirror, email the repository
+owner through their GitHub profile contact options and use the subject line
+`[SECURITY] Citetrail`.
 
 Acknowledgement within 7 days. Please allow reasonable time for a fix before
 public disclosure.
