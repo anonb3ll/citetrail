@@ -4,6 +4,11 @@
 script_dir=$(CDPATH= cd -- "$(dirname -- "$0")" && pwd)
 project_root=$(CDPATH= cd -- "$script_dir/.." && pwd)
 state_dir=${XDG_STATE_HOME:-"$HOME/.local/state"}/citetrail
-mkdir -p "$state_dir"
+log_file="$state_dir/native-host.log"
+umask 077
+mkdir -p "$state_dir" || exit 1
+chmod 700 "$state_dir" || exit 1
+touch "$log_file" || exit 1
+chmod 600 "$log_file" || exit 1
 PYTHONPATH="$project_root${PYTHONPATH:+:$PYTHONPATH}" \
-  exec python3 -m citetrail native-host 2>>"$state_dir/native-host.log"
+  exec python3 -m citetrail native-host 2>>"$log_file"

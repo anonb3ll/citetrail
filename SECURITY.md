@@ -16,7 +16,8 @@ on this repository (Security → Advisories → New draft advisory, or the
 do, what access they need, the smallest reproduction you have, and the
 affected commit.
 
-If private reporting is unavailable on a fork or mirror, email the repository
+If private reporting is unavailable — including when it is not enabled on this
+repository, or when you are looking at a fork or mirror — email the repository
 owner through their GitHub profile contact options and use the subject line
 `[SECURITY] Citetrail`.
 

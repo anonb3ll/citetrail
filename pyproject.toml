@@ -1,10 +1,10 @@
 [build-system]
-requires = ["setuptools>=68"]
+requires = ["setuptools>=77"]
 build-backend = "setuptools.build_meta"
 
 [project]
 name = "citetrail"
-version = "0.1.0"
+dynamic = ["version"]
 description = "Local, provenance-backed browser capture and recall."
 readme = "README.md"
 requires-python = ">=3.11"
@@ -50,6 +50,9 @@ citetrail = "citetrail.cli:main"
 
 [tool.setuptools.packages.find]
 include = ["citetrail*"]
+
+[tool.setuptools.dynamic]
+version = {attr = "citetrail.__version__"}
 
 [tool.pytest.ini_options]
 testpaths = ["tests"]

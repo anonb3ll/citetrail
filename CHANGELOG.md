@@ -6,11 +6,7 @@ adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
 ## [Unreleased]
 
-### Changed
-- Packaging metadata, source distribution contents, and contributor setup for
-  public GitHub release readiness.
-
-## [0.1.0] - 2026-08-21
+## [0.1.0] - 2026-08-22
 
 ### Added
 - Local SQLite capture store with hostname blocklist and fail-closed privacy
@@ -23,6 +19,14 @@ adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 - Apache-2.0 license, security policy, code of conduct, contribution guide,
   privacy and limitations docs, issue/PR templates, and CI on Python
   3.11–3.13.
+
+### Changed
+- Packaging metadata, source distribution contents, and contributor setup for
+  public GitHub release readiness.
+- Native-host helper logs under private user state (`mode 700` / `600`) rather
+  than `/tmp`.
+- Build backend floor raised to setuptools 77 so SPDX license metadata is
+  valid in isolated builds.
 
 <!-- Pre-1.0: interfaces may change without deprecation cycles. -->
 
