@@ -1,5 +1,8 @@
 # Citetrail
 
+[![CI](https://github.com/anonb3ll/citetrail/actions/workflows/ci.yml/badge.svg)](https://github.com/anonb3ll/citetrail/actions/workflows/ci.yml)
+[![License](https://img.shields.io/badge/license-Apache--2.0-blue.svg)](LICENSE)
+
 **Local, provenance-backed memory of what your browser saw — every recall
 carries the URL, title, and timestamp it came from.**
 

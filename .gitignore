@@ -24,6 +24,7 @@ captures/
 # Secrets
 .env
 .env.*
+!.env.example
 *.pem
 *.key
 
@@ -31,3 +32,5 @@ captures/
 .DS_Store
 .idea/
 .vscode/
+*.swp
+*~

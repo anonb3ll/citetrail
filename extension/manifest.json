@@ -3,6 +3,7 @@
   "name": "Citetrail",
   "version": "0.1.0",
   "description": "Local, provenance-backed capture for Citetrail.",
+  "incognito": "not_allowed",
   "permissions": ["nativeMessaging", "storage"],
   "host_permissions": ["<all_urls>"],
   "action": {"default_popup": "popup.html"},

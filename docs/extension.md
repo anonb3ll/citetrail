@@ -10,9 +10,13 @@ It makes no network request.
 2. Open `chrome://extensions`, enable **Developer mode**, select **Load
    unpacked**, then choose this repository's `extension/` directory.
 3. Register the native-message host name `org.citetrail.capture` with your
-   Chromium browser. The registration must run `citetrail native-host`; browser
-   native-host manifests require an absolute executable path, so create a
+   Chromium browser. The registration must point at an absolute path that runs
+   `citetrail native-host`. From a git checkout you can use
+   `scripts/citetrail-native-host` (make sure it is executable), or create a
    user-local wrapper that invokes your installed `citetrail` command.
+
+The extension sets `"incognito": "not_allowed"` and the content script also
+refuses to send from an incognito context.
 
 The service worker records the last bridge result in extension-local storage:
 `captured`, `privacy-blocked`, or `unavailable`. A bridge restart does not queue

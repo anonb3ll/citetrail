@@ -6,10 +6,44 @@ build-backend = "setuptools.build_meta"
 name = "citetrail"
 version = "0.1.0"
 description = "Local, provenance-backed browser capture and recall."
+readme = "README.md"
 requires-python = ">=3.11"
+license = "Apache-2.0"
+license-files = ["LICENSE", "NOTICE"]
+authors = [{ name = "The Citetrail Contributors" }]
+keywords = [
+    "browser",
+    "capture",
+    "mcp",
+    "provenance",
+    "privacy",
+    "local-first",
+    "recall",
+]
+classifiers = [
+    "Development Status :: 3 - Alpha",
+    "Environment :: Console",
+    "Intended Audience :: Developers",
+    "Operating System :: OS Independent",
+    "Programming Language :: Python :: 3",
+    "Programming Language :: Python :: 3.11",
+    "Programming Language :: Python :: 3.12",
+    "Programming Language :: Python :: 3.13",
+    "Topic :: Internet :: WWW/HTTP :: Browsers",
+    "Topic :: Software Development :: Libraries",
+]
+dependencies = []
 
 [project.optional-dependencies]
 dev = ["pytest>=7", "ruff>=0.5"]
+
+[project.urls]
+Homepage = "https://github.com/anonb3ll/citetrail"
+Documentation = "https://github.com/anonb3ll/citetrail/tree/main/docs"
+Repository = "https://github.com/anonb3ll/citetrail"
+Issues = "https://github.com/anonb3ll/citetrail/issues"
+Changelog = "https://github.com/anonb3ll/citetrail/blob/main/CHANGELOG.md"
+"Security Policy" = "https://github.com/anonb3ll/citetrail/blob/main/SECURITY.md"
 
 [project.scripts]
 citetrail = "citetrail.cli:main"

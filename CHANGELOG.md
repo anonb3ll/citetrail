@@ -6,8 +6,25 @@ adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
 ## [Unreleased]
 
-### Added
-- Public repository scaffold: README, Apache-2.0 license, contribution,
-  security, privacy, limitations, and scope-exclusion documentation.
+### Changed
+- Packaging metadata, source distribution contents, and contributor setup for
+  public GitHub release readiness.
 
-<!-- No release has been tagged yet. -->
+## [0.1.0] - 2026-08-21
+
+### Added
+- Local SQLite capture store with hostname blocklist and fail-closed privacy
+  evaluation.
+- CLI: `init`, `search`, `block`, `mcp --stdio`, and `native-host`.
+- MCP `citetrail_search` tool that returns text only with inseparable
+  provenance.
+- Chromium MV3 extension and native-messaging bridge with honest
+  `unavailable` / `privacy-blocked` / `captured` states.
+- Apache-2.0 license, security policy, code of conduct, contribution guide,
+  privacy and limitations docs, issue/PR templates, and CI on Python
+  3.11–3.13.
+
+<!-- Pre-1.0: interfaces may change without deprecation cycles. -->
+
+[Unreleased]: https://github.com/anonb3ll/citetrail/compare/v0.1.0...HEAD
+[0.1.0]: https://github.com/anonb3ll/citetrail/releases/tag/v0.1.0

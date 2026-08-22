@@ -1,4 +1,9 @@
 #!/bin/sh
+# Convenience wrapper for local development from a git checkout.
+# Chromium native-host manifests require an absolute path to this script.
 script_dir=$(CDPATH= cd -- "$(dirname -- "$0")" && pwd)
 project_root=$(CDPATH= cd -- "$script_dir/.." && pwd)
-PYTHONPATH="$project_root${PYTHONPATH:+:$PYTHONPATH}" exec python3 -m citetrail native-host 2>>/tmp/citetrail-native-host.log
+state_dir=${XDG_STATE_HOME:-"$HOME/.local/state"}/citetrail
+mkdir -p "$state_dir"
+PYTHONPATH="$project_root${PYTHONPATH:+:$PYTHONPATH}" \
+  exec python3 -m citetrail native-host 2>>"$state_dir/native-host.log"
